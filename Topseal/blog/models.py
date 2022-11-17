@@ -52,6 +52,7 @@ class MyUser(AbstractUser):
 class Article(models.Model):
     title = models.CharField(max_length=300, unique=True)
     author = models.ForeignKey(MyUser, on_delete=models.PROTECT)
+    description_image = models.ImageField(upload_to="article_images/", null=True)
     content = models.TextField()
     published_at = models.DateTimeField(auto_now_add=True, null=True)
     
