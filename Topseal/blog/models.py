@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager, BaseUserManager
+from django.urls import reverse
 
 # Create your models here.
 
@@ -58,3 +59,6 @@ class Article(models.Model):
     
     def __str__(self):
         return f"Title: {self.title}  ||  Author: {self.author.first_name} {self.author.last_name}"
+    
+    def get_absolute_url(self):
+        return reverse("article_details", args=(int(self.id),))

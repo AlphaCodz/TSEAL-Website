@@ -7,20 +7,17 @@ from django.views.generic import DetailView, ListView
 def author(request):
     return render(request, 'author.html')
 
-def index(request):
-    article = Article.objects.all().order_by("-published_at")
+class Home(ListView):
+    model = Article
+    template_name = "home.html"
+    ordering = "published_at"
     
-    context = {
-        "article": article
-    }
-    return render(request, 'index.html', context=context)
+class ArticleDetailView(DetailView):
+    model = Article
 
-# class ArticleListView(ListView):
-#     model = Article
-#     def head(self, *args, **kwargs):
-#         last_article = self.get_queryset().latest('published_at')
-#         response = HttpResponse(
-        
-#             headers={'Last-Modified': last_article.publication_date.strftime('%a, %d %b %Y %H:%M:%S GMT')},
-#         )
-#         return response
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['articles'] = Article.objects.all()
+        return context
+
+    

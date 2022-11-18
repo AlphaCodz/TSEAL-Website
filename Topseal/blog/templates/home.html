@@ -21,9 +21,6 @@
 			<a class="nav-link" href="index.html">Stories <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
-			<a class="nav-link" href="post.html">Latest</a>
-			</li>
-			<li class="nav-item">
 			<a class="nav-link" href="author.html">About us</a>
 			</li>
 		</ul>
@@ -59,7 +56,7 @@
 		<h2><span>Latest</span></h2>
 	</div>
 	<div class="card-columns listfeaturedtag">
-	{% for articles in article	%}
+	{% for articles in object_list	%}
 		<!-- begin post -->
 		<div class="card">
 			<div class="row">
@@ -69,10 +66,13 @@
 						</div>
 					</a>
 				</div>
-					
+				{% comment %}
+				 
+				{% endcomment %}
+				
 				<div class="col-md-7">
 					<div class="card-block">
-						<h2 class="card-title"><a href="post.html">{{articles.title}}</a></h2>
+						<h2 class="card-title"><a href=" {% url 'blog:article_details' id=articles.id %}">{{articles.title}}</a></h2>
 						<h4 class="card-text">{{articles.content|slice:"200"}} ...</h4>
 						<div class="metafooter">
 							<div class="wrapfooter">

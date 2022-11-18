@@ -1,11 +1,11 @@
 from django.urls import path, re_path
 from . import views
-from .views import index
+from .views import Home, ArticleDetailView
 
-app_name = "webadmin"
+app_name = "blog"
 
 urlpatterns = [
-    # path('index/', ArticleListView.as_view, name="index"),
-    path('index/', views.index, name="index"),
-    path('author/', views.author, name="index")
+    path('home/', Home.as_view(), name="home"),
+    path('author/', views.author, name="index"),
+    re_path('article/<int:id>/', ArticleDetailView.as_view(), name="article_details")
 ]
