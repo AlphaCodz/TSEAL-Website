@@ -1,23 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Article
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, TemplateView
 
 # Create your views here.
-def author(request):
-    return render(request, 'author.html')
-
-class Home(ListView):
-    model = Article
-    template_name = "home.html"
-    ordering = "published_at"
+class HomePage(ListView):
+    model= Article
+    template_name = "webadmin/article_list.html"
     
-class ArticleDetailView(DetailView):
+    def get_queryset(self):
+        return Article.objects.all().order_by("-published_at")
+
+class Details(DetailView):
     model = Article
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['articles'] = Article.objects.all()
-        return context
-
+    template_name = "article_detail.html"
+    context_object_name = "articles"
     
+
+
