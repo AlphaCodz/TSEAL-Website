@@ -55,6 +55,9 @@ class Article(models.Model):
     author = models.ForeignKey(MyUser, on_delete=models.PROTECT)
     description_image = models.ImageField(upload_to="article_images/", null=True)
     content = models.TextField()
+    tag1 = models.CharField(max_length=100, null=True)
+    tag2 = models.CharField(max_length=100, null=True)
+    tag3 = models.CharField(max_length=100, null=True)
     published_at = models.DateTimeField(auto_now_add=True, null=True)
     
     def __str__(self):

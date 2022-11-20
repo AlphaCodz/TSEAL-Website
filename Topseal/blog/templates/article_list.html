@@ -1,0 +1,85 @@
+{% extends "webadmin/base.html" %}
+{% load static %}
+{% block body %}
+<!-- Begin Nav
+================================================== -->
+
+<!-- End Site Title
+================================================== -->
+	
+	<!-- End Featured
+	================================================== -->
+
+	<!-- Begin List Posts
+	================================================== -->
+	<section class="recent-posts">
+	<div class="section-title">
+		<h2><span>All Stories</span></h2>
+	</div>
+	<div class="card-columns listrecent">
+
+		<!-- begin post -->
+
+	{% for articles in object_list %}
+		<div class="card" style="border-radius: 20px;">
+				<img class="img-fluid" src="{{articles.description_image.url}}" alt="image" style="border-radius: 20px;">
+			</a>
+			<div class="card-block">
+				<h2 class="card-title"><a href="{{articles.id}}">{{articles.title}}</a></h2>
+				<h4 class="card-text">{{articles.content|slice:"200"}} ....</h4>
+				<div class="metafooter">
+					<div class="wrapfooter">
+						<span class="meta-footer-thumb">
+						<a href="author.html"><img class="author-thumb" src="{{articles.author.profile_image.url}}" alt="Sal"></a>
+						
+						</span>
+						
+						<span class="author-meta">
+						<span class="post-name"><a href="{{author.id}}">{{articles.author.first_name}} {{articles.author.last_name}}</a></span><br/>
+						<span class="post-date"></span><span class="dot"></span><span class="post-read">{{articles.published_at|timesince}} ago</span>
+						</span>
+						<span class="post-read-more"><a href="{{articles.id}}" title="Read Story"><i class="fa-thin fa-book-open-reader"></i></a></span>
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	{% endfor %}
+		
+	
+		<!-- end post -->
+
+		
+
+	</div>
+	</section>
+	<!-- End List Posts
+	================================================== -->
+
+	<!-- Begin Footer
+	================================================== -->
+	<div class="footer">
+		<p class="pull-left">
+			 Copyright &copy; 2022 TopSeal
+		</p>
+		<div class="clearfix">
+		</div>
+	</div>
+	<!-- End Footer
+	================================================== -->
+
+</div>
+<!-- /.container -->
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+</body>
+
+{% endblock %}

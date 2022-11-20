@@ -11,7 +11,7 @@
 <!-- Bootstrap core CSS -->
 <link href="{% static 'css/bootstrap.min.css' %} " rel="stylesheet">
 <!-- Fonts -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/brands.min.css" integrity="sha512-G/T7HQJXSeNV7mKMXeJKlYNJ0jrs8RsWzYG7rVACye+qrcUhEAYKYzaa+VFy6eFzM2+/JT1Q+eqBbZFSHmJQew==" crossorigin="anonymous" referrerpolicy="no-referrer"  rel="stylesheet"/>
 <!-- Custom styles for this template -->
 <link href="{% static 'css/mediumish.css' %} " rel="stylesheet">
 </head>
@@ -29,15 +29,16 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <!-- Begin Menu -->
                 <ul class="navbar-nav ml-auto">
-                    {% comment %}
-                        <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'blog:view' %}">Latest <span class="sr-only">(current)</span></a>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'blog:index' %}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        
+                        <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog:latest' %}">Latest</a>
                     </li>
-                    {% endcomment %}
                   
-                    <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog:index' %}">Home</a>
-                    </li>
+                   
                 </ul>
                 <!-- End Menu -->
                 <!-- Begin Search -->
