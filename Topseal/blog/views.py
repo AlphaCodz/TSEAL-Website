@@ -23,11 +23,11 @@ class Details(DetailView):
     template_name = "article_detail.html"
     context_object_name = "articles"
 
-# # Authors Profile Page
-# class AuthorDetails(DetailView):
-#     model = Article
-#     template_name = "author.html"
-#     context_object_name = "author"
+# Authors Profile Page
+class ContentDetails(DetailView):
+    model = Article
+    template_name = "article_detail.html"
+    context_object_name = "articles"
 
 
 

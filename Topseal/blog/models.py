@@ -58,6 +58,7 @@ class Article(models.Model):
     tag1 = models.CharField(max_length=100, null=True)
     tag2 = models.CharField(max_length=100, null=True)
     tag3 = models.CharField(max_length=100, null=True)
+    feature_story = models.BooleanField(default=False,null=True)
     published_at = models.DateTimeField(auto_now_add=True, null=True)
     
     def __str__(self):
