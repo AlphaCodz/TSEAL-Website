@@ -23,7 +23,7 @@ font-family: 'Open Sans', sans-serif; font-weight:bold;">
 		<img class="featured-image img-fluid" src="{{articles.description_image.url}}" alt="" style="border-radius: 10px;">
 		<blockquote>
 			<!-- Put image description here --> 
-			image description: Mr Tanko Mohammed poses for Topseal Media reporters 
+			{{articles.image_description}}
 			<!-- Source: Google  -->
 		</blockquote>
 		<!-- End Featured Image -->
@@ -36,7 +36,7 @@ font-family: 'Open Sans', sans-serif; font-weight:bold;">
 			<p>
 				{{articles.content}}
 				<blockquote>
-					Do you know that Nigeria ranks one of the Top African Countries with a large GPD?
+					{{articles.nb}}
 					<!-- LISTS, FACTS, NB's e.t.c -->
 				</blockquote>
 			</p>

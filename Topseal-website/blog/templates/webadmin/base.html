@@ -32,14 +32,24 @@
             <!-- End Logo -->
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <!-- Begin Menu -->
-                <ul class="navbar-nav ml-auto" style="font-family:sans-serif; font-weight:bold;">
+                <ul class="navbar-nav ml-auto" style="font-family: 'Lato', sans-serif;
+                font-family: 'Open Sans', sans-serif; font-weight:bold;">
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'blog:index' %}">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        
-                        <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog:latest' %}">Latest</a>
                     </li>
+                        
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog:latest' %}">Latest News</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog:latest' %}">Top News</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog:create' %}" style="border: 2px solid black; color:rgb(59, 57, 153); border-radius:20px; border-color:rgb(59, 57, 153); text-align:center;">Create Article</a>
+                    </li>
+                      
                   
                    
                 </ul>

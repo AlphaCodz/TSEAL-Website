@@ -14,7 +14,8 @@
 	================================================== -->
 	<section class="recent-posts">
 	<div class="section-title">
-		<h2><span>All Stories</span></h2>
+		<h2 style="border-radius: 20px; font-family: 'Lato', sans-serif;
+		font-family: 'Open Sans', sans-serif; font-weight:bold; font-weight:bolder;"><span>All Stories</span></h2>
 	</div>
 	<div class="card-columns listrecent">
 
@@ -27,7 +28,7 @@
 			</a>
 			<div class="card-block">
 				<h2 class="card-title"><a href="{{articles.id}}">{{articles.title}}</a></h2>
-				<h4 class="card-text">{{articles.content|slice:"200"}} ....</h4>
+				<h4 class="card-text" style="font-weight:bold;">{{articles.content|slice:"200"}} ....</h4>
 				<div class="metafooter">
 					<div class="wrapfooter">
 						<span class="meta-footer-thumb">
@@ -82,5 +83,6 @@
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
 </body>
+</html>
 
 {% endblock %}

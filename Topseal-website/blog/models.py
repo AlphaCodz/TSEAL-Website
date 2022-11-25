@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager, BaseUserManager
 from django.urls import reverse
+# from sorl.thumbnail import get_thumbnail
+
 
 # Create your models here.
 
@@ -28,19 +30,11 @@ class MyUser(AbstractUser):
         ('D', 'Draft'),
         ('P', 'Published'),
     )
-    GENDER_CHOICES = (
-        ('M', 'Male'),
-        ('F', 'Female'),
-        ('O', 'Other'),
-        )
-    gender = models.CharField(max_length= 10, choices=GENDER_CHOICES)
     first_name = models.CharField(max_length=250)
     last_name = models.CharField(max_length=250)
     profile_image = models.ImageField(upload_to="profile_images/", null=True)
     email = models.EmailField(unique=True)
-    username = models.CharField(blank=True, max_length=100)
-    verified_email = models.BooleanField(default=False)
-    verified_phonenumber = models.BooleanField(default=False, null=True)
+    writer = models.BooleanField(default=False)
     
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
@@ -54,15 +48,20 @@ class Article(models.Model):
     title = models.CharField(max_length=300, unique=True)
     author = models.ForeignKey(MyUser, on_delete=models.PROTECT)
     description_image = models.ImageField(upload_to="article_images/", null=True)
+    image_description = models.CharField(max_length=100, null=True)
+    nb = models.TextField(null=True)
     content = models.TextField()
     tag1 = models.CharField(max_length=100, null=True)
     tag2 = models.CharField(max_length=100, null=True)
     tag3 = models.CharField(max_length=100, null=True)
-    feature_story = models.BooleanField(default=False,null=True)
     published_at = models.DateTimeField(auto_now_add=True, null=True)
+    featured = models.BooleanField(default=False, null=True)
+    top_story = models.BooleanField(default=False, null=True)
     
     def __str__(self):
         return f"Title: {self.title}  ||  Author: {self.author.first_name} {self.author.last_name}"
     
     def get_absolute_url(self):
         return reverse("article_details", args=(int(self.id),))
+   
+    
