@@ -1,26 +1,89 @@
 {% extends "webadmin/base.html" %}
 {% load static %}
-
 {% block body %}
-  
-
-<h1>Create Article</h1>
-
 <div class="create-article">
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <table>
-            {{form}}
-        </table>
-        <button class="is-success is-light is-outlined is-fullwidth">
-                Submit
-        </button>
-    </form>
+<!-- <form method="post" enctype="multipart/form-data">
+   {% csrf_token %}
+   {{form}}
+   
+   <button class="is-success is-light is-outlined is-fullwidth">
+           Submit
+   </button>
+   </form> -->
+<form method="" id="article_form">
+   <h1>Create Article</h1>
+   <div class="flex section">
+      <div class="main">
+         <div class="">
+            <label for="title">Title: </label>
+            <input type="text" name="title">
+         </div>
+         <div class="">
+            <label for="content_box">Content: </label>
+            <div class="content_box">
+            </div>
+         </div>
+      </div>
+      <div class="aside">
+         <div class="">
+            <label for="author">Author: </label>
+            <div class="screen">
+               Omosehin I. Olayinka
+            </div>
+         </div>
+         <div class="">
+            <label for="description_image">Description image: </label>
+            <input type="file" name="description_image"  accept="image/png, image/jpeg">
+         </div>
+         <div class="">
+            <label for="image_description">Image description: </label>
+            <input type="text" name="image_description">
+         </div>
+         <div id="tags">
+            <div class="tag_screen flex">
+               <p>Tags:</p>
+               <div class="tags_select screen">
+                  <span class="tag_item">Web Development  <i class="fa fa-times" aria-hidden="true"></i></span>
+                  <!-- <span class="tag_item">Web Development  <i class="fa fa-times" aria-hidden="true"></i></span>
+                     <span class="tag_item">Web Development  <i class="fa fa-times" aria-hidden="true"></i></span>  --> 
+               </div>
+            </div>
+            <label for="tags_selection">Select multiple tags (up to 3 different tags)</label>
+            <select name="tags_selection" id="tags_selection">
+               <option value="">--</option>
+               <option value="Coding">Coding</option>
+               <option value="Web Development">Web Development</option>
+               <option value="Web Design">Web Design</option>
+            </select>
+         </div>
+         <div class="">
+            <label for="featured">Featured: </label>
+            <select name="featured">
+               <option value="No">No</option>
+               <option value="Yes">Yes</option>
+            </select>
+         </div>
+         <div class="">
+            <label for="top_story">Top Story: </label>
+            <select name="featured">
+               <option value="No">No</option>
+               <option value="Yes">Yes</option>
+            </select>
+         </div>
+      </div>
+      
+      </div>
+      <button class="is-success is-light is-outlined is-fullwidth submit">
+         Submit
+         </button>
+</form>
 
-</div>
+
 <script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/create_article.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+</body>
 </html>
 {% endblock body %}
