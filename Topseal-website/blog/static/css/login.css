@@ -1,0 +1,35 @@
+#login_block {
+  max-width: 450px;
+  margin: auto;
+}
+
+#login_block h1 {
+  font-size: 38px;
+  margin-bottom: 5px;
+}
+
+#login_block small {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+#login_block label {
+  font-weight: bold;
+  font-size: 14px;
+  display: block;
+}
+
+#login_block input {
+  outline: none;
+  border: 1px solid #e6dbdb;
+  border-radius: 6px;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+.custom_submit_btn {
+  padding: 5px 0;
+  margin: 15px 0;
+}
