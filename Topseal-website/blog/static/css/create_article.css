@@ -31,7 +31,7 @@
   flex: 0.6;
 }
 #article_form .aside {
-  flex: 0.4;
+  flex: 10.0;
 }
 #article_form .content_box {
   width: 100%;
