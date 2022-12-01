@@ -50,3 +50,11 @@ label span {
 .ck-editor__editable_inline::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+@media screen and (max-width: 767px) {
+  .custom_submit_btn {
+    font-size: 16px !important;
+    padding: 6px !important;
+    margin: 20px 0 !important;
+  }
+}
