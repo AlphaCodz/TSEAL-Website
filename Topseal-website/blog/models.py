@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager, BaseUserManager
 from django.urls import reverse
+from ckeditor.fields import RichTextField
 # from sorl.thumbnail import get_thumbnail
 
 
@@ -49,8 +50,7 @@ class Article(models.Model):
     author = models.ForeignKey(MyUser, on_delete=models.PROTECT)
     description_image = models.ImageField(upload_to="article_images/", null=True)
     image_description = models.CharField(max_length=100, null=True)
-    nb = models.TextField(null=True)
-    content = models.TextField()
+    content = RichTextField(blank=True,  null=True)
     tag1 = models.CharField(max_length=100, null=True)
     tag2 = models.CharField(max_length=100, null=True)
     tag3 = models.CharField(max_length=100, null=True)

@@ -43,3 +43,11 @@ def CreateArticle(request):
     form = ArticleForm()
     context = {"form":form}
     return render(request, 'create_article.html', context)
+
+
+class TopNews(ListView):
+    model = Article
+    template_name = "webadmin/topnews.html"
+    
+    def get_queryset(self):
+        return Article.objects.filter(top_story=True)
