@@ -4,8 +4,8 @@ from .models import Article
 from django.views.generic import DetailView, ListView, TemplateView
 from .forms import ArticleForm
 
-
 # Create your views here.
+
 # HOME PAGE
 class HomePage(ListView):
     model= Article
@@ -33,16 +33,16 @@ class ContentDetails(DetailView):
     
 def CreateArticle(request):
     if request.method == 'POST':
-        form = ArticleForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-                        
-            return redirect('/home')
-        else:
-            print(form.errors.as_data())
-    form = ArticleForm()
-    context = {"form":form}
-    return render(request, 'create_article.html', context)
+        article= Article()
+        article.title= request.POST.get('title')
+        article.content = request.POST.get('content')
+        article.author = request.POST.get('author')
+        article.description_image = request.POST.get('description_image')
+        
+        if article.is_valid():
+            article.save()
+            return render(request, 'create_article.html')
+        return render(request, 'create_article.html')
 
 
 class TopNews(ListView):

@@ -13,7 +13,8 @@
         <p class="lead"></p>
       </div>
 
-      <form method="" id="article_form">
+      <form method="POST" id="article_form" action="">
+         {% csrf_token %}
         <h1>Create Article</h1>
         <div class="flex section">
           <div class="main">
@@ -29,53 +30,7 @@
             <div class="">
               <label for="content_box">Content: </label>
               <div id="editor">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit curae,
-                quisque penatibus proin risus cursus tempor. Aliquam vestibulum
-                porta justo nulla aptent mus volutpat vel nec est, facilisis
-                curae condimentum ornare in nam lacus tempus euismod. Hac
-                vivamus parturient vehicula dui purus sociis quam, ligula
-                blandit massa commodo fusce enim dignissim tempor, ridiculus
-                vestibulum nam posuere nec lobortis. Pellentesque ornare
-                himenaeos at natoque augue vehicula cursus nullam nunc fermentum
-                luctus tempus commodo, mus est proin tellus inceptos facilisi
-                interdum venenatis turpis et eget volutpat dictum, auctor aenean
-                suscipit nec varius elementum nostra lobortis tortor malesuada
-                erat vulputate. Dignissim ligula urna per ad nibh senectus erat,
-                convallis libero fringilla platea vulputate magna molestie nam,
-                varius id lacinia sodales ultricies potenti. Habitant lacus
-                ultricies lobortis leo dictum ad ut ante, class platea risus
-                nisl cras vehicula. Eros aenean elementum placerat velit natoque
-                integer fusce mollis sapien tortor aliquet cras accumsan, cum
-                platea fringilla netus posuere nunc fames ac habitasse curabitur
-                ligula porttitor. At litora purus accumsan nulla magna quis,
-                duis commodo vehicula ultricies iaculis primis molestie,
-                vestibulum consequat rutrum venenatis mus. Tristique lobortis
-                sociis habitasse integer himenaeos tempus facilisi nostra,
-                inceptos leo sollicitudin volutpat libero risus in, aenean arcu
-                dis mattis fermentum facilisis fames. Mauris nisl suscipit
-                aliquet est bibendum porta, sapien rhoncus mi taciti fringilla
-                id erat, eleifend per dictum litora accumsan. Lobortis donec
-                commodo mattis vehicula porta suscipit, pharetra porttitor
-                maecenas dictum parturient, facilisis sed taciti gravida
-                conubia. Urna mattis per ullamcorper maecenas penatibus leo
-                lectus praesent sodales ultricies, ac sollicitudin aptent
-                facilisi nunc senectus purus mauris fermentum, etiam risus
-                malesuada proin faucibus semper natoque taciti viverra.
-                Fermentum fusce iaculis ridiculus nisi auctor tortor aliquam
-                viverra luctus vel tempus, ornare integer montes condimentum
-                quam mauris velit rutrum penatibus maecenas. Enim at curae
-                penatibus curabitur tempor vel porta metus, neque interdum proin
-                hendrerit massa venenatis senectus, tortor condimentum taciti
-                orci sociis pretium malesuada. Dictum orci nisl arcu cras id
-                fusce gravida nec iaculis, habitant ultricies netus parturient
-                ullamcorper praesent auctor ac, conubia scelerisque dapibus
-                lobortis sem ad sagittis faucibus. Ultrices sollicitudin dapibus
-                maecenas volutpat laoreet tristique sed, inceptos elementum
-                dictum diam semper metus enim dignissim, sem nam torquent
-                porttitor lobortis purus. Interdum ut sapien quam felis curae
-                nec sagittis ante purus, taciti tempus volutpat nisi praesent
-                odio aliquam justo scelerisque, sociosqu vehicula vulputate
-                egestas cursus velit rhoncus facilisi.
+                
               </div>
             </div>
           </div>
@@ -108,15 +63,19 @@
                            <span class="tag_item">Web Development  <i class="fa fa-times" aria-hidden="true"></i></span>  -->
                 </div>
               </div>
-              <label for="tags_selection"
-                >Select multiple tags (up to 3 different tags)</label
-              >
+              <label for="tags_selection">Select multiple tags (up to 3 different tags)</label>
+            
               <select name="tags_selection" id="tags_selection">
                 <option value="">--</option>
-                <option value="Coding">Coding</option>
-                <option value="Web Development">Web Development</option>
-                <option value="Web Design">Web Design</option>
+                <option value="Lifestyle">Lifestyle</option>
+                <option value="Business">Business</option>
+                <option value="Military">Military</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Government">Government</option>
+                <option value="Tech">Technology</option>
+                <option value="World">World</option>
               </select>
+    
             </div>
             <div class="">
               <label for="featured">Featured: </label>
