@@ -1,0 +1,60 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  /* CSS HACk 😁 */
+  transition: background-color 5000s;
+  -webkit-text-fill-color: #000;
+}
+
+.custom_submit_btn {
+  width: 100%;
+  font-size: 20px;
+  color: white;
+  background-color: #5c6d9b;
+  outline: none;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: background 0.1s linear;
+}
+
+.custom_submit_btn:hover {
+  background: #4b5981;
+}
+
+label span {
+  color: red;
+}
+
+.ck-editor__editable_inline {
+  height: 500px;
+}
+
+/* width */
+.ck-editor__editable_inline::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+.ck-editor__editable_inline::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.ck-editor__editable_inline::-webkit-scrollbar-thumb {
+  background: #a19797;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.ck-editor__editable_inline::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media screen and (max-width: 767px) {
+  .custom_submit_btn {
+    font-size: 16px !important;
+    padding: 6px !important;
+    margin: 20px 0 !important;
+  }
+}

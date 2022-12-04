@@ -1,0 +1,74 @@
+#article_form {
+  display: block;
+}
+
+#article_form label {
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+}
+
+#article_form input,
+#article_form select,
+#article_form .screen {
+  outline: none;
+  border: 1px solid #e6dbdb;
+  border-radius: 6px;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 6px 10px;
+}
+#article_form h1 {
+  margin-bottom: 30px;
+}
+#article_form .flex {
+  display: flex;
+}
+#article_form .section {
+  gap: 40px;
+}
+#article_form .main {
+  flex: 0.6;
+}
+#article_form .aside {
+  flex: 10.0;
+}
+#article_form .content_box {
+  width: 100%;
+  min-height: 500px;
+  border: 1px solid #e6dbdb;
+}
+#tags .tag_screen {
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+#tags .tags_select {
+  min-height: 32px;
+}
+#tags .tag_item {
+  background-color: #eee;
+  padding: 4px 16px;
+  border-radius: 8px;
+  color: #0faedf;
+  margin-top: 2px;
+  display: inline-block;
+  cursor: pointer;
+}
+#tags .tag_item .fa {
+  margin-right: -10px;
+}
+#tags .tag_item .fa:hover {
+  color: red;
+}
+
+#article_form .custom_submit_btn {
+  margin: 40px 0;
+  padding: 10px 0;
+}
+
+@media screen and (max-width: 1024px) {
+  #article_form .flex.section {
+    flex-direction: column;
+  }
+}
