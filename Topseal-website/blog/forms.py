@@ -3,8 +3,7 @@ from django import forms
 from .models import Article
 
 class ArticleForm(ModelForm):
-    description_image = forms.ImageField(max_length=500, required=True)
     class Meta:
         model = Article
-        fields = "__all__"
+        fields = ("title", "author", "image_description", "description_image", "content", "featured", "top_story")
          

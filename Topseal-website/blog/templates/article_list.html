@@ -37,7 +37,9 @@
 						
 						<span class="author-meta">
 						<span class="post-name"><a href="{{author.id}}">{{articles.author.first_name}} {{articles.author.last_name}}</a></span><br/>
-						<span class="post-date"></span><span class="dot"></span><span class="post-read">{{articles.published_at|timesince}} ago</span>
+						<span class="post-date"></span><span class="dot"></span><span class="post-read">{% comment %}
+						  {{articles.published_at|timesince}} ago
+						{% endcomment %}</span>
 						</span>
 						<span class="post-read-more"><a href="{{articles.id}}" title="Read Story"><i class="fa-thin fa-book-open-reader"></i></a></span>
 						

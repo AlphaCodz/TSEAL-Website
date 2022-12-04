@@ -32,17 +32,20 @@ class ContentDetails(DetailView):
     context_object_name = "articles"
     
 def CreateArticle(request):
-    if request.method == 'POST':
-        article= Article()
-        article.title= request.POST.get('title')
-        article.content = request.POST.get('content')
-        article.author = request.POST.get('author')
-        article.description_image = request.POST.get('description_image')
-        
+    if request.method == "POST":
+        article = ArticleForm(data=request.POST)
         if article.is_valid():
+            articles = article.save()
+            articles.save()
+            
+        if 'description_image' in request.FILES:
+            article.description_image = request.FILES['description_image']
             article.save()
-            return render(request, 'create_article.html')
-        return render(request, 'create_article.html')
+        else:
+            return article.errors
+    else:
+        article = ArticleForm()
+    return render(request, 'create_article.html')
 
 
 class TopNews(ListView):

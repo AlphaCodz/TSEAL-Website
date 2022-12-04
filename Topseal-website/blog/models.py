@@ -45,22 +45,6 @@ class MyUser(AbstractUser):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
     
-class Article(models.Model):
-    title = models.CharField(max_length=300, unique=True)
-    author = models.ForeignKey(MyUser, on_delete=models.PROTECT)
-    description_image = models.ImageField(upload_to="article_images/", null=True)
-    image_description = models.CharField(max_length=100, null=True)
-    content = models.TextField(null=True)
-    published_at = models.DateTimeField(auto_now_add=True, null=True)
-    featured = models.BooleanField(default=False, null=True)
-    top_story = models.BooleanField(default=False, null=True)
-    
-    def __str__(self):
-        return f"Title: {self.title}  ||  Author: {self.author.first_name} {self.author.last_name}"
-    
-    def get_absolute_url(self):
-        return reverse("article_details", args=(int(self.id),))
-   
 class MyTag(models.Model):
     Tags = (
         ('Web Development', 'Web Development'),
@@ -71,9 +55,25 @@ class MyTag(models.Model):
         ('Startups', 'Startups'),
         ('Society', 'Society')
     )
-    article = models.ForeignKey(Article, on_delete=models.PROTECT)
     tags = MultiSelectField(choices=Tags, max_choices=3,
                             max_length=15, null=True)
     
     def __str__(self):
         return f"{self.article} {self.tags}"
+    
+class Article(models.Model):
+    title = models.CharField(max_length=300, unique=True)
+    author = models.ForeignKey(MyUser, on_delete=models.PROTECT)
+    description_image = models.ImageField(upload_to="article_images/", null=True)
+    image_description = models.CharField(max_length=100, null=True)
+    content = models.TextField(null=True)
+    published_at = models.TimeField(auto_now_add=True, null=True)
+    featured = models.BooleanField(default=False, null=True)
+    top_story = models.BooleanField(default=False, null=True)
+    
+    def __str__(self):
+        return f"Title: {self.title}  ||  Author: {self.author.first_name} {self.author.last_name}"
+    
+    def get_absolute_url(self):
+        return reverse("article_details", args=(int(self.id),))
+   
