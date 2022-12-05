@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager, BaseUserManager
 from django.urls import reverse
 from multiselectfield import MultiSelectField
-# from sorl.thumbnail import get_thumbnail
 
 
 # Create your models here.
