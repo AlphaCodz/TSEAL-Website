@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import environ
+from dotenv import load_dotenv
 
 env = environ.Env()
 environ.Env.read_env()
@@ -22,6 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+load_dotenv(os.path.join(BASE_DIR, ".env"))
+
 STATICFILES_DIR = [
     os.path.join(BASE_DIR, 'static')
 ]
@@ -32,7 +35,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure--39=pe5$s2nrz^n+^y&8#ia=2#_4pnu_o1r2uho^!gmx-evm@1"
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -92,12 +95,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
   "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "railway",
-        "USER": "postgres",
-        "PASSWORD": "QBgfEhPejiick6MgFhXL",
-        "HOST": "containers-us-west-145.railway.app",
-        "PORT": "6280",
-        "URL": "postgresql://${{ PGUSER }}:${{ PGPASSWORD }}@${{ PGHOST }}:${{ PGPORT }}/${{ PGDATABASE }}"
+        "NAME": os.getenv("NAME"),
+        "USER": os.getenv("USER"),
+        "PASSWORD": os.getenv("PASSWORD"),
+        "HOST": os.getenv("HOST"),
+        "PORT": os.getenv("PORT"),
+        "URL": os.getenv("URL")
     }
 }
 
