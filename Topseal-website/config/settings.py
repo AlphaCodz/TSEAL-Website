@@ -35,7 +35,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 SECRET_KEY = "django-insecure--39=pe5$s2nrz^n+^y&8#ia=2#_4pnu_o1r2uho^!gmx-evm@1"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
