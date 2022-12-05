@@ -54,3 +54,9 @@ class TopNews(ListView):
     
     def get_queryset(self):
         return Article.objects.filter(top_story=True)
+    
+class TopNewsDetail(DetailView):
+    model = Article
+    template_name = "article_detail.html"
+    context_object_name = "articles"
+    
