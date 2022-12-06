@@ -13,8 +13,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import environ
-# import dotenv
-from django.core.wsgi import get_wsgi_application
 
 env = environ.Env()
 environ.Env.read_env()
@@ -25,10 +23,6 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# dotenv
-# dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
-
-application = get_wsgi_application()
 
 STATICFILES_DIR = [
     os.path.join(BASE_DIR, 'static')
