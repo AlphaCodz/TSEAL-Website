@@ -1,6 +1,6 @@
 migrations/
 .env
-.env/
+.venv/
 media/
 .vercel
 
